@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,19 +11,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
 
 body::before {
     content: '';
-    inset: 0;
-    z-index: -1;
     position: absolute;
-    background-image: url(https://4.bp.blogspot.com/-K_S9ZNna4jY/WUkTDwZgW2I/AAAAAAAABDU/WyBFAwAqSZU9y8auQjJ_kPB7OZynek9qACLcBGAs/s1600/bekasi.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    filter: blur(2px) grayscale(100%);
+    background-color: #404f54;
     width: 120vw;
     height: 120vh;
 }
@@ -112,6 +109,7 @@ button {
     color: white;
     margin-bottom: 1em;
     background-color: #137c1c;
+    font-family: inherit;
     cursor: pointer;
     transition: all 300ms ease-in-out;
     box-shadow: rgba(17, 12, 46, 0.426) 0px 48px 100px 0px;
@@ -134,7 +132,7 @@ span {
 
 .modal-box {
     width: 40ch;
-    height: 42ch;
+    height: 40ch;
     border: none;
     outline: none;
     border-radius: 0.35em;
@@ -152,10 +150,8 @@ span {
 .close-btn {
     position: absolute;
     padding: 1em;
-    padding-left: 20em;
+    right: 0;
     cursor: pointer;
-    border-bottom: 1px solid gray;
-    width: 100%;
 }
 
 .modal-content h1 {
@@ -184,7 +180,6 @@ ul li {
     border: none;
     background-color: #137c1c;
     outline: none;
-    margin-bottom: 1em;
     transition: all 300ms ease-in-out;
 }
 
@@ -195,11 +190,11 @@ ul li {
 
 @media ( width < 768px) {
     form {
-        scale: .70;
+        transform: scale(0.70);
     }
 
     .modal-box {
-        scale: .70;
+        transform: scale(.70);
     }
 
     span {
@@ -209,6 +204,6 @@ ul li {
 
 @media ( width >= 768px ) {
     form {
-        scale: 1;
+        transform: scale(1);
     }
 }
