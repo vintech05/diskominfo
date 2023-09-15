@@ -387,8 +387,15 @@ tr:hover {
         width: 20em;
     }
 
-    .table-wrapper {
+    .table-dashboard {
         display: none;
+    }
+
+    .table-wrapper {
+        margin-top: 2em;
+        width: 95%;
+        margin-left: .75em;
+        overflow-x: auto;
     }
 }
 
