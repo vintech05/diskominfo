@@ -9,6 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -38,42 +39,38 @@
                     <div class="majors-cta">
                         <i class="fa-solid fa-globe"></i>
                         <span>Bidang</span>
+                        <i class="fa-solid fa-angle-down dropdown-cta dropdown-icon"></i>
                     </div>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/akutansi.html">
-                                <span>akutansi</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/pip.html">
-                                <span>pip</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/tik.html">
-                                <span>tik</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/standi.html">
-                                <span>standi</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/e-gov.html">
-                                <span>e-gov</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="majors-toggle">
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/pip.html">
+                                    <span>pip</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/tik.html">
+                                    <span>tik</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/standi.html">
+                                    <span>standi</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/e-gov.html">
+                                    <span>e-gov</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <ul class="sidebar-item">
                     <li>
@@ -93,6 +90,16 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="nav-wrapper">
+        <nav>
+            <div class="welcome-display">
+                <span>Selamat Datang! 👋</span>
+            </div>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
+            </div>
+        </nav>
     </div>
 </body>
 

@@ -10,108 +10,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <main>
-        <div class="sidebar-wrapper">
-            <div class="sidebar">
-                <div class="text-display">
-                    <span>DISKOMINFOSTANDI</span>
-                </div>
-                <div class="sidebar-content">
-                    <ul class="sidebar-item active">
-                        <li>
-                            <a href="/src/dashboard.html">
-                                <i class="fa-solid fa-cube"></i>
-                                <span>dashboard</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/userprofile.html">
-                                <i class="fa-solid fa-user"></i>
-                                <span>user profile</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="majors-wrapper">
-                        <div class="majors-cta">
-                            <i class="fa-solid fa-globe"></i>
-                            <span>Bidang</span>
-                            <i class="fa-solid fa-angle-down dropdown-cta dropdown-icon"></i>
-                        </div>
-                        <div class="majors-toggle">
-                            <ul class="sidebar-item">
-                                <li>
-                                    <a href="/src/akutansi.html">
-                                        <span>akutansi</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sidebar-item">
-                                <li>
-                                    <a href="/src/pip.html">
-                                        <span>pip</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sidebar-item">
-                                <li>
-                                    <a href="/src/tik.html">
-                                        <span>tik</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sidebar-item">
-                                <li>
-                                    <a href="/src/standi.html">
-                                        <span>standi</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sidebar-item">
-                                <li>
-                                    <a href="/src/e-gov.html">
-                                        <span>e-gov</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+    <div class="sidebar-wrapper">
+        <div class="sidebar">
+            <div class="text-display">
+                <span>DISKOMINFOSTANDI</span>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-item active">
+                    <li>
+                        <a href="/src/dashboard.html">
+                            <i class="fa-solid fa-cube"></i>
+                            <span>dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sidebar-item">
+                    <li>
+                        <a href="/src/userprofile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>user profile</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="majors-wrapper">
+                    <div class="majors-cta">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>Bidang</span>
+                        <i class="fa-solid fa-angle-down dropdown-cta dropdown-icon"></i>
                     </div>
-                    <ul class="sidebar-item">
-                        <li>
-                            <a href="/src/lokasi.html">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span>lokasi</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="sidebar-item log-out">
-                        <li>
-                            <a href="/login.html">
-                                <i class="fa-solid fa-right-from-bracket log-out-icon"></i>
-                                <span>Log out</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="majors-toggle">
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/pip.html">
+                                    <span>pip</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/tik.html">
+                                    <span>tik</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/standi.html">
+                                    <span>standi</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sidebar-item">
+                            <li>
+                                <a href="/src/e-gov.html">
+                                    <span>e-gov</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <ul class="sidebar-item">
+                    <li>
+                        <a href="/src/lokasi.html">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>lokasi</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sidebar-item log-out">
+                    <li>
+                        <a href="/login.html">
+                            <i class="fa-solid fa-right-from-bracket log-out-icon"></i>
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </main>
+    </div>
     <div class="nav-wrapper">
         <nav>
             <div class="welcome-display">
                 <span>Selamat Datang! 👋</span>
             </div>
             <div class="hamburger">
-                <i class="fa-solid fa-bars" style="color: #c3c6d1;"></i>
+                <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
             </div>
         </nav>
     </div>
-    <div class="main-content-wrapper">
-        <div class="main-content-container">
+    <main>
+        <div class="main-content">
             <div class="majors-display">
                 <div class="card-wrapper">
                     <div class="card-container">
@@ -166,8 +158,125 @@
                     </div>
                 </div>
             </div>
+            <div class="table-wrapper">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Usia</th>
+                                <th>Bidang</th>
+                                <th>Durasi</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td class="table-cta">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
