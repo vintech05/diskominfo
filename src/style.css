@@ -189,6 +189,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding-inline: 2em;
+    margin-bottom: 2em;
 }
 
 nav span {
@@ -197,11 +198,26 @@ nav span {
     color: #4C4D53;
 }
 
+.add-new-cta button {
+    padding: .55em;
+    background: none;
+    border: 2px solid #0860f7;
+    color: #0860f7;
+    border-radius: .35em;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+}
+
 .welcome-display span {
     margin-left: 10em;
 }
 
 nav .hamburger {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 4em;
     cursor: pointer;
 }
 
@@ -267,6 +283,31 @@ nav .hamburger {
 
 .card li a:hover {
     text-decoration: underline;
+}
+
+.form-wrapper {
+    margin-left: 17.5em;
+    background-color: #fff;
+    width: 20em;
+    margin-block: 2em;
+}
+
+#intern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 20em;
+    padding: 2em;
+}
+
+#intern-form input {
+    width: 15em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.form-wrapper button {
+    margin: 2em;
 }
 
 .table-wrapper {
@@ -371,6 +412,10 @@ tr:hover {
         padding-block: 5em;
         width: 40em;
     }
+
+    nav .hamburger {
+        gap: 2em;
+    }
 }
 
 @media ( width <= 426px ) {
@@ -397,5 +442,6 @@ tr:hover {
         margin-left: .75em;
         overflow-x: auto;
     }
+
 }
 

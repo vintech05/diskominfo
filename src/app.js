@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const dropDwn = document.querySelector('.majors-cta');
     const options = document.querySelector('.majors-toggle');
     const dropDwnIcon = document.querySelector('.dropdown-icon');
-    const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.hamburger-icon');
     const sidebar = document.querySelector('.sidebar');
     
     dropDwn.addEventListener('click', () => {

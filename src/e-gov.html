@@ -9,7 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="app.js" defer></script>
+    <script src="/src/app.js" defer></script>
 </head>
 
 <body>
@@ -94,16 +94,34 @@
     <div class="nav-wrapper">
         <nav>
             <div class="welcome-display">
-                <span>Selamat Datang! 👋</span>
+                <span>E-GOV</span>
             </div>
             <div class="hamburger">
                 <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
+                <div class="add-new-cta">
+                    <button>
+                        <i class="fa-solid fa-plus" style="color: #0860f7;"></i>
+                        Add New
+                    </button>
+                </div>
             </div>
         </nav>
     </div>
+
+    <div class="form-wrapper">
+        <form id="intern-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="school" placeholder="School" required>
+            <input type="text" id="duration" placeholder="Duration" required>
+            <input type="text" id="status" placeholder="Status" required>
+            <button type="submit">Add Intern</button>
+        </form>
+    </div>
+
     <div class="table-wrapper">
         <div class="table-container">
-            <table>
+            <table class="interns-table">
                 <thead>
                     <tr>
                         <th>Nama</th>
@@ -123,95 +141,7 @@
                         <td>test</td>
                         <td class="table-cta">
                             <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;"></i>
+                            <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern();"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -219,5 +149,76 @@
         </div>
     </div>
 </body>
+
+<script>
+    function getCurrentFilename() {
+        // Get the current HTML file path and extract the filename
+        let currentFile = window.location.pathname;
+        let filename = currentFile.split('/').pop();
+        return filename;
+    }
+
+    document.getElementById('intern-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        let newIntern = {
+            name: document.getElementById('name').value,
+            age: document.getElementById('age').value,
+            school: document.getElementById('school').value,
+            duration: document.getElementById('duration').value,
+            status: document.getElementById('status').value
+        };
+
+        addIntern(newIntern);
+    });
+
+    function addIntern(intern) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        interns.push(intern);
+        localStorage.setItem(storageKey, JSON.stringify(interns));
+        loadInterns();
+    }
+
+    function loadInterns() {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        let internsTable = document.querySelector('.interns-table tbody');
+        internsTable.innerHTML = '';
+
+        // Add each intern to the table
+        for (let i = 0; i < interns.length; i++) {
+            let row = `<tr>
+                <td>${interns[i].name}</td>
+                <td>${interns[i].age}</td>
+                <td>${interns[i].school}</td>
+                <td>${interns[i].duration}</td>
+                <td>${interns[i].status}</td>
+                <td>
+                    <button onclick="deleteIntern(${i})">Delete</button>
+                </td>
+            </tr>`;
+
+            internsTable.innerHTML += row;
+        }
+    }
+
+    function deleteIntern(index) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        interns.splice(index, 1);
+        localStorage.setItem(storageKey, JSON.stringify(interns));
+        loadInterns();
+    }
+
+    loadInterns();
+</script>
+
 
 </html>
