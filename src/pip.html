@@ -17,6 +17,18 @@
         <div class="sidebar">
             <div class="text-display">
                 <span>DISKOMINFOSTANDI</span>
+                <div class="display-content">
+                    <div class="media-social">
+                        <a href="https://www.facebook.com/KominfostandiBekasi/"><i class="fa-brands fa-facebook"
+                                style="color: #fff;"></i></i></a>
+                        <a href="https://twitter.com/KominfoBekasi"><i class="fa-brands fa-twitter"
+                                style="color: #fff;"></i></a>
+                        <a href="https://www.instagram.com/diskominfobekasi/"><i class="fa-brands fa-instagram"
+                                style="color: #fff;"></i></a>
+                        <a href="https://www.youtube.com/channel/UCAtdu1ymK6EFWZ8RtoNPSOg"><i
+                                class="fa-brands fa-youtube" style="color: #fff;"></i></a>
+                    </div>
+                </div>
             </div>
             <div class="sidebar-content">
                 <ul class="sidebar-item active">
@@ -100,7 +112,7 @@
                 <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
                 <div class="add-new-cta">
                     <button>
-                        <i class="fa-solid fa-plus" style="color: #0860f7;"></i>
+                        <i class="fa-solid fa-user-plus" style="color: #0860f7;"></i>
                         Add New
                     </button>
                 </div>
@@ -110,6 +122,7 @@
 
     <div class="form-wrapper">
         <form id="intern-form">
+            <input type="hidden" id="index">
             <input type="text" id="name" placeholder="Name" required>
             <input type="number" id="age" placeholder="Age" required>
             <input type="text" id="school" placeholder="School" required>
@@ -150,7 +163,6 @@
     </div>
     <script>
         function getCurrentFilename() {
-            // Get the current HTML file path and extract the filename
             let currentFile = window.location.pathname;
             let filename = currentFile.split('/').pop();
             return filename;
@@ -159,7 +171,7 @@
         document.getElementById('intern-form').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            let newIntern = {
+            let intern = {
                 name: document.getElementById('name').value,
                 age: document.getElementById('age').value,
                 school: document.getElementById('school').value,
@@ -167,8 +179,43 @@
                 status: document.getElementById('status').value
             };
 
-            addIntern(newIntern);
+            let index = document.getElementById('index').value;
+
+            if (index) {
+                updateIntern(intern, index);
+            } else {
+                addIntern(intern);
+            }
+
+            document.getElementById('intern-form').reset();
+
         });
+
+        function updateIntern(intern, index) {
+            let filename = getCurrentFilename();
+            let storageKey = 'interns_' + filename;
+
+            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+            interns[index] = intern;
+            localStorage.setItem(storageKey, JSON.stringify(interns));
+            loadInterns();
+        }
+
+        function editIntern(index) {
+            let filename = getCurrentFilename();
+            let storageKey = 'interns_' + filename;
+
+            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+            let intern = interns[index];
+
+            document.getElementById('name').value = intern.name;
+            document.getElementById('age').value = intern.age;
+            document.getElementById('school').value = intern.school;
+            document.getElementById('duration').value = intern.duration;
+            document.getElementById('status').value = intern.status;
+            document.getElementById('index').value = index;
+        }
+
 
         function addIntern(intern) {
             let filename = getCurrentFilename();
@@ -188,7 +235,6 @@
             let internsTable = document.querySelector('.interns-table tbody');
             internsTable.innerHTML = '';
 
-            // Add each intern to the table
             for (let i = 0; i < interns.length; i++) {
                 let row = `<tr>
                     <td>${interns[i].name}</td>
@@ -197,6 +243,7 @@
                     <td>${interns[i].duration}</td>
                     <td>${interns[i].status}</td>
                     <td>
+                        <i class="fa-solid fa-edit" onclick="editIntern(${i})"></i>
                         <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern(${i})"></i>
                     </td>
                 </tr>`;

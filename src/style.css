@@ -79,6 +79,19 @@ body {
     padding-top: 1em;    
 }
 
+.display-content {
+    position: absolute;
+    top: 0;
+    padding-top: 3.25em;
+}
+
+.media-social {
+    display: flex;
+    flex-direction: row;
+    gap: .75em;
+    font-size: 1em;
+}
+
 .sidebar-content {
     display: flex;
     flex-direction: column;
@@ -289,6 +302,7 @@ nav .hamburger {
     margin-left: 17.5em;
     background-color: #fff;
     width: 20em;
+    border-radius: .55em;
     margin-block: 2em;
 }
 
@@ -307,7 +321,9 @@ nav .hamburger {
 }
 
 .form-wrapper button {
-    margin: 2em;
+    width: 8em;
+    cursor: pointer;
+    padding: 1em;
 }
 
 .table-wrapper {
@@ -339,7 +355,7 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: var(--secondary-clr);
     color: white;
 }
 
