@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="/src/app.js" defer></script>
@@ -19,14 +20,12 @@
                 <span>DISKOMINFOSTANDI</span>
                 <div class="display-content">
                     <div class="media-social">
-                        <a href="https://www.facebook.com/KominfostandiBekasi/"><i class="fa-brands fa-facebook"
-                                style="color: #fff;"></i></i></a>
-                        <a href="https://twitter.com/KominfoBekasi"><i class="fa-brands fa-twitter"
-                                style="color: #fff;"></i></a>
-                        <a href="https://www.instagram.com/diskominfobekasi/"><i class="fa-brands fa-instagram"
-                                style="color: #fff;"></i></a>
+                        <a href="https://www.facebook.com/KominfostandiBekasi/"><i
+                                class="fa-brands fa-facebook"></i></i></a>
+                        <a href="https://twitter.com/KominfoBekasi"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/diskominfobekasi/"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.youtube.com/channel/UCAtdu1ymK6EFWZ8RtoNPSOg"><i
-                                class="fa-brands fa-youtube" style="color: #fff;"></i></a>
+                                class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -34,7 +33,7 @@
                 <ul class="sidebar-item active">
                     <li>
                         <a href="/src/dashboard.html">
-                            <i class="fa-solid fa-cube"></i>
+                            <i class='bx bxs-dashboard dashboard-icon'></i>
                             <span>dashboard</span>
                         </a>
                     </li>
@@ -42,14 +41,14 @@
                 <ul class="sidebar-item">
                     <li>
                         <a href="/src/userprofile.html">
-                            <i class="fa-solid fa-user"></i>
+                            <i class='bx bx-user'></i>
                             <span>user profile</span>
                         </a>
                     </li>
                 </ul>
                 <div class="majors-wrapper">
                     <div class="majors-cta">
-                        <i class="fa-solid fa-globe"></i>
+                        <i class='bx bx-git-branch'></i>
                         <span>Bidang</span>
                         <i class="fa-solid fa-angle-down dropdown-cta dropdown-icon"></i>
                     </div>
@@ -110,9 +109,9 @@
             </div>
             <div class="hamburger">
                 <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
-                <div class="add-new-cta">
-                    <button>
-                        <i class="fa-solid fa-user-plus" style="color: #0860f7;"></i>
+                <div class="cta-wrapper">
+                    <button class="add-new-cta">
+                        <i class="fa-solid fa-user-plus"></i>
                         Add New
                     </button>
                 </div>
@@ -123,12 +122,29 @@
     <div class="form-wrapper">
         <form id="intern-form">
             <input type="hidden" id="index">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="number" id="age" placeholder="Age" required>
-            <input type="text" id="school" placeholder="School" required>
-            <input type="text" id="duration" placeholder="Duration" required>
-            <input type="text" id="status" placeholder="Status" required>
-            <button type="submit">Add Intern</button>
+            <div class="form-control">
+                <input type="text" id="name" placeholder="Name" required>
+            </div>
+            <div class="form-control">
+                <input type="number" id="age" placeholder="Age" required>
+            </div>
+            <div class="form-control">
+                <input type="text" id="school" placeholder="School" required>
+            </div>
+            <div class="form-control">
+                <input type="text" id="duration" placeholder="Duration" required>
+            </div>
+            <div class="form-control">
+                <input type="text" id="status" placeholder="Status" required>
+            </div>
+            <div class="form-control">
+                <img id="current-face" src="" alt="Current Face">
+                <input type="file" id="face" accept="image/*">
+            </div>
+            <div class="button-wrapper">
+                <button type="submit">Add Intern</button>
+                <button class="cancel-btn" type="reset">Cancel</button>
+            </div>
         </form>
     </div>
 
@@ -137,6 +153,7 @@
             <table class="interns-table">
                 <thead>
                     <tr>
+                        <th>Profil</th>
                         <th>Nama</th>
                         <th>Usia</th>
                         <th>Kampus/Sekolah</th>
@@ -147,41 +164,64 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td><img src="${interns[i].face}" alt="Face" width="50" height="50" id="rounded-image"></td>
                         <td>test</td>
                         <td>test</td>
                         <td>test</td>
                         <td>test</td>
                         <td>test</td>
                         <td class="table-cta">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern();"></i>
+                            <i class="fa-solid fa-pen-to-square add-new-cta"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <script>
-        function getCurrentFilename() {
-            let currentFile = window.location.pathname;
-            let filename = currentFile.split('/').pop();
-            return filename;
-        }
+</body>
 
-        document.getElementById('intern-form').addEventListener('submit', function (event) {
-            event.preventDefault();
+<script>
+    function getCurrentFilename() {
+        let currentFile = window.location.pathname;
+        let filename = currentFile.split('/').pop();
+        return filename;
+    }
 
-            let intern = {
-                name: document.getElementById('name').value,
-                age: document.getElementById('age').value,
-                school: document.getElementById('school').value,
-                duration: document.getElementById('duration').value,
-                status: document.getElementById('status').value
-            };
+    document.getElementById('intern-form').addEventListener('submit', function (event) {
+        event.preventDefault();
 
+
+        let intern = {
+            face: document.getElementById('face').files[0],
+            name: document.getElementById('name').value,
+            age: document.getElementById('age').value,
+            school: document.getElementById('school').value,
+            duration: document.getElementById('duration').value,
+            status: document.getElementById('status').value
+        };
+
+        let faceFile = document.getElementById('face').files[0];
+        if (faceFile) {
+            let reader = new FileReader();
+            reader.onloadend = function () {
+                intern.face = reader.result;
+                let index = document.getElementById('index').value;
+
+                if (index) {
+                    updateIntern(intern, index);
+                } else {
+                    addIntern(intern);
+                }
+
+                location.reload();
+                document.getElementById('intern-form').reset();
+            }
+            reader.readAsDataURL(faceFile);
+        } else {
             let index = document.getElementById('index').value;
 
             if (index) {
+                intern.face = document.getElementById('current-face').src;
                 updateIntern(intern, index);
             } else {
                 addIntern(intern);
@@ -189,84 +229,96 @@
 
             location.reload();
             document.getElementById('intern-form').reset();
-
-        });
-
-        function updateIntern(intern, index) {
-            let filename = getCurrentFilename();
-            let storageKey = 'interns_' + filename;
-
-            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
-            interns[index] = intern;
-            localStorage.setItem(storageKey, JSON.stringify(interns));
-            loadInterns();
         }
+    });
 
-        function editIntern(index) {
-            let filename = getCurrentFilename();
-            let storageKey = 'interns_' + filename;
+    function updateIntern(intern, index) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
 
-            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
-            let intern = interns[index];
-
-            document.getElementById('name').value = intern.name;
-            document.getElementById('age').value = intern.age;
-            document.getElementById('school').value = intern.school;
-            document.getElementById('duration').value = intern.duration;
-            document.getElementById('status').value = intern.status;
-            document.getElementById('index').value = index;
-        }
-
-
-        function addIntern(intern) {
-            let filename = getCurrentFilename();
-            let storageKey = 'interns_' + filename;
-
-            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
-            interns.push(intern);
-            localStorage.setItem(storageKey, JSON.stringify(interns));
-            loadInterns();
-        }
-
-        function loadInterns() {
-            let filename = getCurrentFilename();
-            let storageKey = 'interns_' + filename;
-
-            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
-            let internsTable = document.querySelector('.interns-table tbody');
-            internsTable.innerHTML = '';
-
-            for (let i = 0; i < interns.length; i++) {
-                let row = `<tr>
-                    <td>${interns[i].name}</td>
-                    <td>${interns[i].age}</td>
-                    <td>${interns[i].school}</td>
-                    <td>${interns[i].duration}</td>
-                    <td>${interns[i].status}</td>
-                    <td>
-                        <i class="fa-solid fa-edit" onclick="editIntern(${i})"></i>
-                        <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern(${i})"></i>
-                    </td>
-                </tr>`;
-
-                internsTable.innerHTML += row;
-            }
-        }
-
-        function deleteIntern(index) {
-            let filename = getCurrentFilename();
-            let storageKey = 'interns_' + filename;
-
-            let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
-            interns.splice(index, 1);
-            localStorage.setItem(storageKey, JSON.stringify(interns));
-            loadInterns();
-        }
-
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        interns[index] = intern;
+        localStorage.setItem(storageKey, JSON.stringify(interns));
         loadInterns();
-    </script>
+    }
 
-</body>
+    function editIntern(index) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        let intern = interns[index];
+
+
+        document.getElementById('current-face').src = intern.face;
+
+        document.getElementById('name').value = intern.name;
+        document.getElementById('age').value = intern.age;
+        document.getElementById('school').value = intern.school;
+        document.getElementById('duration').value = intern.duration;
+        document.getElementById('status').value = intern.status;
+        document.getElementById('index').value = index;
+
+        document.querySelector('.form-wrapper').classList.add('active');
+
+    }
+
+    function cancelEdit() {
+        document.querySelector('.form-wrapper').classList.remove('active');
+    }
+
+    document.querySelector('.cancel-btn').addEventListener('click', cancelEdit);
+
+    function addIntern(intern) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        interns.push(intern);
+        localStorage.setItem(storageKey, JSON.stringify(interns));
+        loadInterns();
+    }
+
+    function loadInterns() {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        let internsTable = document.querySelector('.interns-table tbody');
+        internsTable.innerHTML = '';
+
+        for (let i = 0; i < interns.length; i++) {
+            let row = `<tr>
+            <td><img src="${interns[i].face}" alt="Face" width=40" height=40"
+                 style="border-radius: 50px;
+                 object-fit: cover;
+                 "></td>
+            <td>${interns[i].name}</td>
+            <td>${interns[i].age}</td>
+            <td>${interns[i].school}</td>
+            <td>${interns[i].duration}</td>
+            <td>${interns[i].status}</td>
+            <td>
+                <i class="fa-solid fa-edit" onclick="editIntern(${i})"></i>
+                <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern(${i})"></i>
+            </td>
+        </tr>`;
+            internsTable.innerHTML += row;
+        }
+    }
+
+    function deleteIntern(index) {
+        let filename = getCurrentFilename();
+        let storageKey = 'interns_' + filename;
+
+        let interns = JSON.parse(localStorage.getItem(storageKey)) || [];
+        interns.splice(index, 1);
+        localStorage.setItem(storageKey, JSON.stringify(interns));
+        loadInterns();
+    }
+
+    loadInterns();
+</script>
 
 
 </html>

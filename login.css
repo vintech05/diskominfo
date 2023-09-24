@@ -146,7 +146,6 @@ span {
 .modal-box::backdrop {
     backdrop-filter: blur(2px);
 }
-
 .close-btn {
     position: absolute;
     padding: 1em;

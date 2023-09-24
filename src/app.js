@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const dropDwnIcon = document.querySelector('.dropdown-icon');
     const hamburger = document.querySelector('.hamburger-icon');
     const sidebar = document.querySelector('.sidebar');
+    const addBtn = document.querySelector('.add-new-cta');
+    const cancelBtn = document.querySelector('.cancel-btn');
+    const form = document.querySelector('.form-wrapper');
     
     dropDwn.addEventListener('click', () => {
         options.classList.toggle('show');
@@ -14,4 +17,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('move');
     })
+
+    addBtn.addEventListener('click', () => {
+        form.classList.add('active');
+    })
+
+    cancelBtn.addEventListener('click', ()=> {
+        form.classList.remove('active');
+    })
+
 });

@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="app.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -20,14 +20,12 @@
                 <span>DISKOMINFOSTANDI</span>
                 <div class="display-content">
                     <div class="media-social">
-                        <a href="https://www.facebook.com/KominfostandiBekasi/"><i class="fa-brands fa-facebook"
-                                style="color: #fff;"></i></i></a>
-                        <a href="https://twitter.com/KominfoBekasi"><i class="fa-brands fa-twitter"
-                                style="color: #fff;"></i></a>
-                        <a href="https://www.instagram.com/diskominfobekasi/"><i class="fa-brands fa-instagram"
-                                style="color: #fff;"></i></a>
+                        <a href="https://www.facebook.com/KominfostandiBekasi/"><i
+                                class="fa-brands fa-facebook"></i></i></a>
+                        <a href="https://twitter.com/KominfoBekasi"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/diskominfobekasi/"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.youtube.com/channel/UCAtdu1ymK6EFWZ8RtoNPSOg"><i
-                                class="fa-brands fa-youtube" style="color: #fff;"></i></a>
+                                class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -35,7 +33,7 @@
                 <ul class="sidebar-item active">
                     <li>
                         <a href="/src/dashboard.html">
-                            <i class="fa-solid fa-cube"></i>
+                            <i class='bx bxs-dashboard dashboard-icon'></i>
                             <span>dashboard</span>
                         </a>
                     </li>
@@ -43,14 +41,14 @@
                 <ul class="sidebar-item">
                     <li>
                         <a href="/src/userprofile.html">
-                            <i class="fa-solid fa-user"></i>
+                            <i class='bx bx-user'></i>
                             <span>user profile</span>
                         </a>
                     </li>
                 </ul>
                 <div class="majors-wrapper">
                     <div class="majors-cta">
-                        <i class="fa-solid fa-globe"></i>
+                        <i class='bx bx-git-branch'></i>
                         <span>Bidang</span>
                         <i class="fa-solid fa-angle-down dropdown-cta dropdown-icon"></i>
                     </div>
@@ -107,7 +105,7 @@
     <div class="nav-wrapper">
         <nav>
             <div class="welcome-display">
-                <span>Selamat Datang! 👋</span>
+                <span>Dashboard</span>
             </div>
             <div class="hamburger">
                 <i class="fa-solid fa-bars hamburger-icon" style="color: #b0b3bc;"></i>
@@ -116,6 +114,28 @@
     </div>
     <main>
         <div class="main-content">
+            <div class="top-content">
+                <div class="top-content-container">
+                    <div class="top-content-icon">
+                        <i class="fa-solid fa-bullhorn" style="color: #fff;"></i>
+                    </div>
+                    <div class="top-content-details">
+                        <div class="content-headings">
+                            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis?</span>
+                        </div>
+                        <div class="content-subheadings">
+                            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium exercitationem
+                                iste
+                                est rem, accusamus odit?</span>
+                        </div>
+                    </div>
+                    <div class="top-content-cta">
+                        <a href="https://diskominfo.bekasikota.go.id/#" target="_blank">
+                            <button class="top-content-btn">Get Started</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="majors-display">
                 <div class="card-wrapper">
                     <div class="card-container">
@@ -123,10 +143,11 @@
                             <div class="card-content">
                                 <div class="title akuntasi-card">
                                     <h1>PIP</h1>
+                                    <i class='bx bx-world'></i>
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li><a href="/src/akutansi.html">Lihat Detail</a></li>
+                                        <li><a href="/src/pip.html">Lihat Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -135,10 +156,11 @@
                             <div class="card-content">
                                 <div class="title akuntasi-card">
                                     <h1>E-Gov</h1>
+                                    <i class='bx bx-wifi'></i>
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li><a href="/src/akutansi.html">Lihat Detail</a></li>
+                                        <li><a href="/src/e-gov.html">Lihat Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -147,10 +169,11 @@
                             <div class="card-content">
                                 <div class="title akuntasi-card">
                                     <h1>STANDI</h1>
+                                    <i class='bx bx-check-shield'></i>
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li><a href="/src/akutansi.html">Lihat Detail</a></li>
+                                        <li><a href="/src/standi.html">Lihat Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -159,10 +182,11 @@
                             <div class="card-content">
                                 <div class="title akuntasi-card">
                                     <h1>TIK</h1>
+                                    <i class='bx bx-network-chart'></i>
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li><a href="/src/akutansi.html">Lihat Detail</a></li>
+                                        <li><a href="/src/tik.html">Lihat Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -170,7 +194,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </body>
 
