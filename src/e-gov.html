@@ -8,6 +8,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="/src/app.js" defer></script>
@@ -86,7 +87,7 @@
                 <ul class="sidebar-item">
                     <li>
                         <a href="/src/lokasi.html">
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class="lni lni-map-marker"></i>
                             <span>lokasi</span>
                         </a>
                     </li>
@@ -265,6 +266,7 @@
 
     function cancelEdit() {
         document.querySelector('.form-wrapper').classList.remove('active');
+        window.location.reload();
     }
 
     document.querySelector('.cancel-btn').addEventListener('click', cancelEdit);
@@ -292,6 +294,7 @@
             <td><img src="${interns[i].face}" alt="Face" width=40" height=40"
                  style="border-radius: 50px;
                  object-fit: cover;
+                 border: 2px solid #007bff;
                  "></td>
             <td>${interns[i].name}</td>
             <td>${interns[i].age}</td>
@@ -299,8 +302,10 @@
             <td>${interns[i].duration}</td>
             <td>${interns[i].status}</td>
             <td>
-                <i class="fa-solid fa-edit" onclick="editIntern(${i})"></i>
-                <i class="fa-solid fa-trash-can" style="color: #fc0303;" onclick="deleteIntern(${i})"></i>
+                <button style="color: #007bff; background-color: #43a7cb3a; font-family: inherit; padding:
+                .55em; border-radius: 6px; cursor: pointer; margin-right: .75em;" onclick="editIntern(${i})">Edit</button>
+                <button style="color: #ef0f0b; background-color: #f50a062b; font-family: inherit; padding:
+                .55em; border-radius: 6px; cursor: pointer;" onclick="deleteIntern(${i})">Delete</button>
             </td>
         </tr>`;
             internsTable.innerHTML += row;
