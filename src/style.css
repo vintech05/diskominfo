@@ -246,15 +246,35 @@ nav span {
 }
 
 .welcome-display span {
-    margin-left: 10em;
+    margin-left: 0em;
     color: #000;
+}
+
+.welcome-display {
+    margin-left: 15.5em;
+}
+
+.welcome-display input {
+    padding-block: .55em;
+    font-family: 'Poppins';
+    width: 20em;
+}
+
+.welcome-display-container {
+    display: flex;
+    gap: .35em;
+    padding-inline: .55em;
+    flex-direction: row-reverse;
+    align-items: center;
+    outline: 2px solid var(--links-clr);
+    border-radius: .35em;
 }
 
 nav .hamburger {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: 4em;
+    gap: 2em;
     cursor: pointer;
 }
 
@@ -482,6 +502,14 @@ tr {
         margin-left: 0em;
     }
 
+    .welcome-display {
+        margin-left: -1em;
+    }
+
+    .welcome-display input {
+        width: auto;
+    }
+
     .card-container {
         display: flex;
         flex-direction: column;
@@ -563,7 +591,7 @@ tr {
     }
 
     nav .hamburger {
-        gap: 2em;
+        gap: .65em;
     }
 
     .form-wrapper {
@@ -590,6 +618,8 @@ tr {
     .welcome-display span {
         font-size: 1em;
     }
+
+    .welcome-display 
 
     .card {
         width: 20em;
