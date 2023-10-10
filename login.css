@@ -34,7 +34,7 @@ body::after {
 }
 
 form {
-    box-shadow: rgba(39, 39, 40, 0.677) 0px 7px 29px 0px;
+    border: 1px solid #aaa;
     border-radius: .75em;
     padding-block: 1em;
     padding-inline: 3em;
@@ -52,8 +52,8 @@ form {
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
@@ -101,11 +101,17 @@ input:focus {
     border-bottom: 2px solid rgb(103, 102, 102);
 }
 
+.form-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button {
     border: none;
     border-radius: .35em;
     padding-block: 1em;
-    padding-inline: 2em;
+    padding-inline: 10em;
     color: white;
     margin-bottom: 1em;
     background-color: #137c1c;

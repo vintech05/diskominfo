@@ -12,6 +12,7 @@
     --blue-clr: #007bff;
     --blue-secondary-clr: #43a7cb3a;
     --links-clr: #4c4d53ad;
+    --intern-form-border: #aaa;
     
 
     --third-clr: #747a82;
@@ -266,7 +267,7 @@ nav span {
     padding-inline: .55em;
     flex-direction: row-reverse;
     align-items: center;
-    outline: 2px solid var(--links-clr);
+    outline: 2px solid var(--intern-form-border);
     border-radius: .35em;
 }
 
@@ -359,7 +360,7 @@ nav .hamburger {
     background-color: var(--form-clr);
     gap: 1em;
     border-radius: .55em;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid var(--intern-form-border);
     z-index: 50;
     padding: 2em;
 }
