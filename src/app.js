@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     dropDwn.addEventListener('click', () => {
         options.classList.toggle('show');
         dropDwnIcon.classList.toggle('rotate');
-        console.log('clicked');
     })
 
     hamburger.addEventListener('click', () => {
@@ -46,5 +45,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     } 
 
     document.querySelector('#search-bar').addEventListener('keyup', searchTable);
-
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'k' || event.key === 'K') {
+            if (event.ctrlKey || event.metaKey) {
+                event.preventDefault(); // Prevent the default browser action
+                document.getElementById("search-bar").focus();
+            }
+        }
+    });
 });
